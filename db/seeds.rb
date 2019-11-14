@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require 'awesome_print'
+
+10.times do
+  ingredient = Ingredient.new(
+    name: Faker::Food.ingredient,
+    )
+  ingredient.save!
+end
+
+ap Ingredient.all
+
+# INSTALL FAKER GEM IN GEM FILE
