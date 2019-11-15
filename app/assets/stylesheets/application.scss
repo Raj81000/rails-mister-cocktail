@@ -11,3 +11,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-gap:16px
+// }
+
+// .bar {
+//   background-image: assert-url("bg.jpg");
+//   background-size: cover;
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: -1;
+//   opacity: 0.5; /* Tone the image down further by giving it transparency */
+//   -webit-filter: blur(10px) grayscale(10%);
+//   filter: blur(5px) grayscale(10%); /* Go wild! */
+// }
+

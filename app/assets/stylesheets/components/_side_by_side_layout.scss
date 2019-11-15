@@ -1,0 +1,10 @@
+.side_by_side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:40px;
+  padding-top:20px;
+}
+
+.cocktail-container {
+  display:flex
+}
