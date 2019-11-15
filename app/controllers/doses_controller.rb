@@ -7,6 +7,7 @@ class DosesController < ApplicationController
   def create
     @cocktail = Cocktail.find(params[:cocktail_id])
     # this identifies the correct cocktail to which this new dose is connected
+    # @cocktail.name = params(:name)
     @dose = Dose.new(dose_params)
     # this creates the instance of the dose through the dose params method below that is connected to the relevant cocktail
     @dose.cocktail = @cocktail
@@ -19,10 +20,16 @@ class DosesController < ApplicationController
     end
   end
 
+  def edit
+  @cocktail = Cocktail.find(params[:cocktail_id])
+  end
+
   def destroy
     @dose.delete
     redirect_to cocktails_path
   end
+
+
 
 private
 

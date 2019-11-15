@@ -5,23 +5,29 @@
   <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: "Are you sure?"} do %>
     <i class="fas fa-trash-alt"></i>
   <% end %>
-  <h3><%= link_to "Update the name of this cocktail", edit_cocktail_path(@cocktail.id) %></h3>
-  <h3><%= link_to "Create the recipe for this cocktail", edit_cocktail_path(@cocktail.id) %></h3>
 
+  <h3><%= link_to "Make changes to this cocktail", new_cocktail_dose_path(@cocktail) %></h3>
 
   <h3><%= link_to "Go back to your cocktails", cocktails_path %></h3>
+ <h1>List of ingredients!</h1>
 
-    <%= simple_form_for(@cocktail) do |f| %>
-<%= f.error_notification %>
-<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="ingredients">
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <p><%= dose.ingredient.name %></p>
+          </li>
+          <li>
+            <p><%= dose.description %></p>
+          </li>
 
-<div class="form-inputs">
-  <%= f.input :ingredients %>
-</div>
 
-<div class="form-actions">
-  <%= f.button :submit %>
-</div>
+        <% end %>
+      </ul>
+    </div>
 
-<% end %>
+
+
+
+
 

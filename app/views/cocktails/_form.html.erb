@@ -1,13 +1,24 @@
 
+<!-- <form action="/cocktails" method="post"></form> -->
+<!-- <form action="/cocktails/1" method="patch"></form> -->
+
 <%= simple_form_for(@cocktail) do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 <div class="form-inputs">
   <%= f.input :name %>
+  <%#= f.hidden :description %>
+
 </div>
+
+  <%= f.simple_fields_for :doses do |dose_form| %>
+    <%=  dose_form.input :description %>
+    <%=  dose_form.input :ingredient_id, collection: Ingredient.all  %>
+  <% end %>
 
 <div class="form-actions">
   <%= f.button :submit %>
 </div>
+
 <% end %>

@@ -4,14 +4,15 @@
 
 <!-- remember that for this form to work, it needs to work with the new dose method which is in the  -->
 <!-- doses controller and that method has two variables, the @cocktails and @dose.  so cutting and pasting
-this into the show view won't work.   -->
-
+this into the show view won't work unless you also change the new method in the cocktail controller so that the
+view can pick up the cocktails variable.   -->
+<h1><%= @cocktail.name %></h1>
+<%= link_to "edit", edit_cocktail_path(@cocktail)  %>
 <%= simple_form_for([@cocktail, @dose]) do |f| %>
 <%= f.error_notification %>
 <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
 <div class="form-inputs">
-  <%= f.association :ingredient %>
+ <%= f.association :ingredient %>
   <%= f.input :description %>
 </div>
 

@@ -6,11 +6,12 @@ class CocktailsController < ApplicationController
   end
 
   def show
-
+    # @dose = Dose.new
+    @doses = Dose.all
   end
 
   def new
-    @cocktail = Cocktail.new
+    # @cocktail = Cocktail.new
   end
 
   def create
